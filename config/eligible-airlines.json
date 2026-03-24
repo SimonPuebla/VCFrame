@@ -1,0 +1,300 @@
+{
+  "_comment": "ZED Package Eligible Airlines — edit this file to add/remove airlines from the agreement. Do not modify the code.",
+  "_lastUpdated": "2026-03-24",
+  "airlines": [
+    {
+      "code": "VE",
+      "name": "Aerolíneas Estelar",
+      "aliases": ["Aerolineas Estelar", "Estelar", "Aerolíneas Estelar"],
+      "active": true,
+      "notes": "Venezuelan carrier"
+    },
+    {
+      "code": "AM",
+      "name": "Aeroméxico",
+      "aliases": ["Aeromexico", "Aeroméxico", "AM"],
+      "active": true,
+      "notes": "Mexican flag carrier, major hub MEX"
+    },
+    {
+      "code": "DM",
+      "name": "Arajet",
+      "aliases": ["Arajet"],
+      "active": true,
+      "notes": "Dominican low-cost carrier, hub SDQ"
+    },
+    {
+      "code": "TX",
+      "name": "Air Caraïbes",
+      "aliases": ["Air Caraibes", "Air Caraïbes", "Air Caraibes Atlantique"],
+      "active": true,
+      "notes": "French Caribbean carrier, hub PTP"
+    },
+    {
+      "code": "RC",
+      "name": "Atlantic Airways",
+      "aliases": ["Atlantic Airways", "Atlantic"],
+      "active": true,
+      "notes": "Faroe Islands carrier, hub FAE"
+    },
+    {
+      "code": "AC",
+      "name": "Air Canada",
+      "aliases": ["Air Canada", "AC"],
+      "active": true,
+      "notes": "Canadian flag carrier, hubs YYZ YVR YUL"
+    },
+    {
+      "code": "GL",
+      "name": "Air Greenland",
+      "aliases": ["Air Greenland", "Greenlandair"],
+      "active": true,
+      "notes": "Greenland national carrier, hub GOH"
+    },
+    {
+      "code": "GZ",
+      "name": "Air Rarotonga",
+      "aliases": ["Air Rarotonga", "Air Raro"],
+      "active": true,
+      "notes": "Cook Islands carrier, hub RAR"
+    },
+    {
+      "code": "5G",
+      "name": "ASL Airlines",
+      "aliases": ["ASL", "ASL Airlines", "ASL Airlines Ireland"],
+      "active": true,
+      "notes": "European charter/freight operator"
+    },
+    {
+      "code": "SN",
+      "name": "Brussels Airlines",
+      "aliases": ["Brussels Airlines", "SN Brussels", "SN"],
+      "active": true,
+      "notes": "Belgian flag carrier, hub BRU"
+    },
+    {
+      "code": "PM",
+      "name": "Canary",
+      "aliases": ["Canary", "Canary Airlines"],
+      "active": true,
+      "notes": "Regional carrier"
+    },
+    {
+      "code": "DE",
+      "name": "Condor",
+      "aliases": ["Condor", "Condor Airlines", "Condor Flugdienst"],
+      "active": true,
+      "notes": "German leisure carrier, hub FRA"
+    },
+    {
+      "code": "GM",
+      "name": "Chair Airlines",
+      "aliases": ["Chair Airlines", "Chair", "Germania Switzerland"],
+      "active": true,
+      "notes": "Swiss charter carrier, hub ZRH"
+    },
+    {
+      "code": "5T",
+      "name": "Canadian North",
+      "aliases": ["Canadian North", "First Air"],
+      "active": true,
+      "notes": "Northern Canadian carrier"
+    },
+    {
+      "code": "9M",
+      "name": "Central Mountain Air",
+      "aliases": ["Central Mountain Air", "CMA"],
+      "active": true,
+      "notes": "Regional BC/Alberta carrier"
+    },
+    {
+      "code": "DV",
+      "name": "Discovery Airlines",
+      "aliases": ["Discovery", "Discovery Airlines"],
+      "active": true,
+      "notes": "Regional carrier"
+    },
+    {
+      "code": "DL",
+      "name": "Delta",
+      "aliases": ["Delta", "Delta Air Lines", "Delta Airlines"],
+      "active": true,
+      "notes": "US major carrier, hubs ATL JFK LHR"
+    },
+    {
+      "code": "EY",
+      "name": "Etihad",
+      "aliases": ["Etihad", "Etihad Airways"],
+      "active": true,
+      "notes": "UAE carrier, hub AUH"
+    },
+    {
+      "code": "EK",
+      "name": "Emirates",
+      "aliases": ["Emirates", "Emirates Airline"],
+      "active": true,
+      "notes": "UAE mega-carrier, hub DXB"
+    },
+    {
+      "code": "AY",
+      "name": "Finnair",
+      "aliases": ["Finnair", "Finn Air"],
+      "active": true,
+      "notes": "Finnish flag carrier, hub HEL"
+    },
+    {
+      "code": "F8",
+      "name": "Flair",
+      "aliases": ["Flair", "Flair Airlines", "Flair Air"],
+      "active": true,
+      "notes": "Canadian ULCC"
+    },
+    {
+      "code": "BF",
+      "name": "French Bee",
+      "aliases": ["French Bee", "FrenchBee", "French bee"],
+      "active": true,
+      "notes": "French ULCC, hub ORY"
+    },
+    {
+      "code": "IB",
+      "name": "Iberia",
+      "aliases": ["Iberia", "Ibéria", "Iberia Airlines"],
+      "active": true,
+      "notes": "Spanish flag carrier, hub MAD"
+    },
+    {
+      "code": "6H",
+      "name": "Israir Airlines",
+      "aliases": ["Israir", "Israir Airlines"],
+      "active": true,
+      "notes": "Israeli carrier, hub TLV"
+    },
+    {
+      "code": "LA",
+      "name": "LATAM",
+      "aliases": ["LATAM", "LATAM Airlines", "LAN", "TAM"],
+      "active": true,
+      "notes": "South American mega-carrier, hubs SCL GRU BOG LIM"
+    },
+    {
+      "code": "LK",
+      "name": "Link Airways",
+      "aliases": ["Link Airways", "Link Airwys", "Link"],
+      "active": true,
+      "notes": "Australian regional carrier"
+    },
+    {
+      "code": "AZ",
+      "name": "ITA Airways",
+      "aliases": ["ITA", "ITA Airways", "Alitalia"],
+      "active": true,
+      "notes": "Italian flag carrier, hub FCO"
+    },
+    {
+      "code": "B6",
+      "name": "JetBlue",
+      "aliases": ["JetBlue", "Jet Blue", "JetBlue Airways"],
+      "active": true,
+      "notes": "US carrier, hubs JFK BOS FLL"
+    },
+    {
+      "code": "LO",
+      "name": "LOT Polish Airlines",
+      "aliases": ["LOT", "LOT Polish Airlines", "Polish Airlines"],
+      "active": true,
+      "notes": "Polish flag carrier, hub WAW"
+    },
+    {
+      "code": "KM",
+      "name": "KM Malta Airlines",
+      "aliases": ["KM Malta", "KM Malta Airlines", "Air Malta"],
+      "active": true,
+      "notes": "Maltese carrier, hub MLA"
+    },
+    {
+      "code": "N0",
+      "name": "Norse Atlantic Airways",
+      "aliases": ["Norse", "Norse Atlantic", "Norse Atlantic Airways"],
+      "active": true,
+      "notes": "Norwegian ULCC long-haul, hub OSL"
+    },
+    {
+      "code": "2Z",
+      "name": "Voepass",
+      "aliases": ["Voepass", "VoePass", "Passaredo"],
+      "active": true,
+      "notes": "Brazilian regional carrier"
+    },
+    {
+      "code": "8P",
+      "name": "Platoon Aviation",
+      "aliases": ["Platoon Aviation", "Platoon"],
+      "active": true,
+      "notes": "Regional operator"
+    },
+    {
+      "code": "PD",
+      "name": "Porter Airlines",
+      "aliases": ["Porter", "Porter Airlines"],
+      "active": true,
+      "notes": "Canadian carrier, hub YTZ YYZ"
+    },
+    {
+      "code": "WG",
+      "name": "Perimeter Aviation",
+      "aliases": ["Perimeter Aviation", "Perimeter"],
+      "active": true,
+      "notes": "Northern Manitoba carrier"
+    },
+    {
+      "code": "SZ",
+      "name": "Sunrise Airways",
+      "aliases": ["Sunrise", "Sunrise Airways"],
+      "active": true,
+      "notes": "Haitian carrier, hub PAP"
+    },
+    {
+      "code": "HV",
+      "name": "Transavia Netherlands",
+      "aliases": ["Transavia Netherlands", "Transavia NL", "Transavia.com"],
+      "active": true,
+      "notes": "Dutch LCC, hub AMS"
+    },
+    {
+      "code": "TO",
+      "name": "Transavia France",
+      "aliases": ["Transavia France", "Transavia FR"],
+      "active": true,
+      "notes": "French LCC, hub ORY"
+    },
+    {
+      "code": "UA",
+      "name": "United Airlines",
+      "aliases": ["United", "United Airlines", "United Air Lines"],
+      "active": true,
+      "notes": "US major carrier, hubs EWR ORD IAH DEN SFO"
+    },
+    {
+      "code": "WA",
+      "name": "Wasaya Airways",
+      "aliases": ["Wasaya", "Wasaya Airways"],
+      "active": true,
+      "notes": "Northern Ontario carrier"
+    },
+    {
+      "code": "VY",
+      "name": "Vueling",
+      "aliases": ["Vueling", "Vueling Airlines"],
+      "active": true,
+      "notes": "Spanish LCC, hub BCN"
+    },
+    {
+      "code": "V7",
+      "name": "Volotea",
+      "aliases": ["Volotea", "Volotea Airlines"],
+      "active": true,
+      "notes": "European LCC, hubs VCE BCN"
+    }
+  ]
+}
