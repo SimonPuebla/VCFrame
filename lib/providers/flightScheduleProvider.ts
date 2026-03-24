@@ -2,14 +2,12 @@
  * Flight Schedule Provider
  * Supplies concrete flight options for a specific date.
  *
- * Currently returns an empty result (no live data), which causes the
- * routing engine to fall back to Route Network Mode automatically.
+ * Auto-selects:
+ *   - AVIATIONSTACK_API_KEY set + Basic plan → LiveFlightScheduleProvider
+ *   - No key, or Free plan → NoopScheduleProvider (triggers route-network fallback)
  *
- * TODO: To plug in a live flight schedule API (e.g. OAG Schedules,
- *   Cirium Schedules, AviationStack):
- *   1. Implement FlightScheduleProviderInterface below.
- *   2. Replace `flightScheduleProvider` export with your live instance.
- *   3. Return FlightOption[] for the requested date and route.
+ * Live provider uses Aviationstack /v1/flight_schedules (Basic plan+).
+ * Returns [] on Free plan — the search engine falls back to route-network mode.
  */
 
 import type { FlightOption } from '@/types';
@@ -31,13 +29,34 @@ export interface FlightScheduleProviderInterface {
 
 class NoopScheduleProvider implements FlightScheduleProviderInterface {
   async getFlights(): Promise<FlightOption[]> {
-    return []; // No live data yet — will trigger route-network fallback
+    return [];
   }
   isLive(): boolean {
     return false;
   }
 }
 
-// ── Default export: replace with live provider when available ──────────────
-export const flightScheduleProvider: FlightScheduleProviderInterface =
-  new NoopScheduleProvider();
+async function createProvider(): Promise<FlightScheduleProviderInterface> {
+  if (process.env.AVIATIONSTACK_API_KEY) {
+    try {
+      const { LiveFlightScheduleProvider } = await import('./liveFlightScheduleProvider');
+      return new LiveFlightScheduleProvider();
+    } catch (err) {
+      console.warn('[flightScheduleProvider] Failed to load live provider:', err);
+    }
+  }
+  return new NoopScheduleProvider();
+}
+
+let _providerPromise: Promise<FlightScheduleProviderInterface> | null = null;
+
+export const flightScheduleProvider: FlightScheduleProviderInterface = {
+  async getFlights(originIata, destinationIata, date) {
+    if (!_providerPromise) _providerPromise = createProvider();
+    const p = await _providerPromise;
+    return p.getFlights(originIata, destinationIata, date);
+  },
+  isLive() {
+    return !!process.env.AVIATIONSTACK_API_KEY;
+  },
+};

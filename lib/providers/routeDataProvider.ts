@@ -2,12 +2,12 @@
  * Route Data Provider
  * Supplies the routing engine with route (edge) data.
  *
- * Currently uses /data/routes.json (static mock data).
+ * Auto-selects provider based on environment:
+ *   - AVIATIONSTACK_API_KEY set  → LiveRouteDataProvider (Aviationstack /v1/routes)
+ *   - No API key                 → StaticRouteDataProvider (bundled routes.json)
  *
- * TODO: To plug in a live schedule API (e.g. OAG, Cirium, FlightAware):
- *   1. Implement a class that satisfies the RouteDataProviderInterface below.
- *   2. Replace `staticProvider` with your live provider instance.
- *   3. The routing engine calls only `getRoutes()` — no other changes needed.
+ * Live provider caches responses for 12h via Next.js Data Cache.
+ * Falls back to static on any API error or plan restriction.
  */
 
 import type { Route } from '@/types';
@@ -25,7 +25,7 @@ export interface RouteDataProviderInterface {
 
 /**
  * Static provider — reads from the bundled routes.json file.
- * Only returns routes operated by currently active eligible airlines.
+ * Fallback when no API key is configured.
  */
 class StaticRouteDataProvider implements RouteDataProviderInterface {
   private eligibleCodes: Set<string>;
@@ -47,6 +47,38 @@ class StaticRouteDataProvider implements RouteDataProviderInterface {
   }
 }
 
-// ── Default export: swap this instance to plug in a live provider ──────────
-export const routeDataProvider: RouteDataProviderInterface =
-  new StaticRouteDataProvider();
+// ── Auto-select provider at module load time ───────────────────────────────
+// Dynamic import keeps the live provider out of the bundle when not needed.
+async function createProvider(): Promise<RouteDataProviderInterface> {
+  if (process.env.AVIATIONSTACK_API_KEY) {
+    try {
+      const { LiveRouteDataProvider } = await import('./liveRouteDataProvider');
+      return new LiveRouteDataProvider();
+    } catch (err) {
+      console.warn('[routeDataProvider] Failed to load live provider, falling back to static:', err);
+    }
+  }
+  return new StaticRouteDataProvider();
+}
+
+let _providerPromise: Promise<RouteDataProviderInterface> | null = null;
+
+function getProvider(): Promise<RouteDataProviderInterface> {
+  if (!_providerPromise) _providerPromise = createProvider();
+  return _providerPromise;
+}
+
+/**
+ * The active route data provider.
+ * Usage: const routes = await routeDataProvider.getRoutes();
+ */
+export const routeDataProvider: RouteDataProviderInterface = {
+  async getRoutes() {
+    const p = await getProvider();
+    return p.getRoutes();
+  },
+  isLive() {
+    // We can't know synchronously; the search engine checks mode after routes load.
+    return !!process.env.AVIATIONSTACK_API_KEY;
+  },
+};
